@@ -64,3 +64,11 @@ jobs:
           task-definition: awsdemo-task.json
           container-name: awsdemo
           image: ${{ steps.build-image.outputs.image }}
+
+      - name: Deploy Amazon ECS task definition
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        with:
+          task-definition: ${{ steps.task-def.outputs.task-definition }}
+          service: awsdemo-service
+          cluster: awsdemo
+          wait-for-service-stability: false
