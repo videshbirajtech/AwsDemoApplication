@@ -23,7 +23,6 @@ public class LoginRequest {
         this.email = email;
     }
 
-
     @Override
     public String toString() {
         return "LoginRequest{" +
