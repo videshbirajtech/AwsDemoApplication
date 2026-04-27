@@ -20,8 +20,7 @@ public class LoginController {
     public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginRequest loginRequest) {
         String email = loginRequest.getEmail();
         logger.info("Login request received for email: {}", email);
-        
-        // Example of business logic validation
+
         if (email != null && email.contains("blocked")) {
             throw new BusinessException("This email is blocked from login");
         }
